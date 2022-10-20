@@ -1,15 +1,18 @@
 #pragma once
 
 #include "utils.h"
+#include <vector>
 
 class IDevice {
 public:
-    IDevice(char firm[21], char country_of_manufacture[]);
+    IDevice(u_int16_t firm, short country_of_manufacture);
     virtual ~IDevice();
     virtual void product_info() = 0;
 protected:
-    char _firm[21];
-    char _country_of_manufacture[2];
+    void print_models(vector<string> models);
+    vector<string> _models;
+    u_int16_t _firm;
+    short _country_of_manufacture;
 };
 
 class Mechanical : virtual public IDevice {

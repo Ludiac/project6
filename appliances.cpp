@@ -3,8 +3,8 @@
 
 Washing_machine::Washing_machine
             (
-                char firm[21],
-                char country_of_manufacture[2],
+                u_int16_t firm,
+                short country_of_manufacture,
                 e_supply_method esm,
                 int max_load
             ) :
@@ -21,16 +21,17 @@ Washing_machine::~Washing_machine()
 void Washing_machine::product_info()
 {
     cout    << "Washine machine"       << '\n'
-            << _firm                   << '\n'
-            << _country_of_manufacture << '\n'
+            << get_firm_string(_firm)                   << '\n'
+            << get_country_string(_country_of_manufacture) << '\n'
             << _supply_method          << '\n'
-            << _max_load               << '\n';
+            << "max_load: " << _max_load               << '\n';
+    print_models(_models);
 };
 
 Mechanical_scales::Mechanical_scales
                 (
-                    char firm[21],
-                    char country_of_manufacture[2],
+                    u_int16_t firm,
+                    short country_of_manufacture,
                     int max_load
                 ) :
                     IDevice(firm, country_of_manufacture),
@@ -45,16 +46,17 @@ Mechanical_scales::~Mechanical_scales()
 void Mechanical_scales::product_info()
 {
     cout    << "Mechanical scales"     << '\n'
-            << _firm                   << '\n'
-            << _country_of_manufacture << '\n'
-            << _max_load               << '\n';
+            << get_firm_string(_firm)                   << '\n'
+            << get_country_string(_country_of_manufacture) << '\n'
+            << "max_load: " << _max_load               << '\n';
+    print_models(_models);
 }
 
 
 Smartphone::Smartphone
                     (
-                        char firm[21],
-                        char country_of_manufacture[2],
+                        u_int16_t firm,
+                        short country_of_manufacture,
                         e_supply_method esm,
                         bool local_network
                     ) :
@@ -71,11 +73,11 @@ Smartphone::~Smartphone()
 void Smartphone::product_info()
 {
      cout   << "Smartphone"                     << '\n'
-            << _firm                            << '\n'
-            << _country_of_manufacture          << '\n';
+            << get_firm_string(_firm)                            << '\n'
+            << get_country_string(_country_of_manufacture)          << '\n';
 if(b_local_network == true)
      cout   << "Can connect to WWW"             << '\n';
 else
      cout   << "Works only in local network"    << '\n';
-
+     print_models(_models);
 }

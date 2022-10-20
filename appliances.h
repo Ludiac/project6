@@ -7,8 +7,8 @@ class Washing_machine : public Electrical {
 public:
     Washing_machine
                 (
-                    char firm[21],
-                    char country_of_manufacture[2],
+                    u_int16_t firm,
+                    short country_of_manufacture,
                     e_supply_method esm,
                     int max_load
                 );
@@ -24,8 +24,8 @@ class Mechanical_scales : public Mechanical {
 public:
     Mechanical_scales
                     (
-                        char firm[21],
-                        char country_of_manufacture[2],
+                        u_int16_t firm,
+                        short country_of_manufacture,
                         int max_load
                     );
 
@@ -40,8 +40,8 @@ class Smartphone : public Electrical, public IConnected_to_network {
 public:
     Smartphone
             (
-                char firm[21],
-                char country_of_manufacture[2],
+                u_int16_t firm,
+                short country_of_manufacture,
                 e_supply_method esm,
                 bool local_network
             );

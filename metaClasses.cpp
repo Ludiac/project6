@@ -1,14 +1,22 @@
 #include "metaClasses.h"
+#include "map.cpp"
 
 
-IDevice::IDevice(char firm[21], char country_of_manufacture[])
+IDevice::IDevice(u_int16_t firm, short country_of_manufacture) : _firm(firm), _country_of_manufacture(country_of_manufacture)
 {
-    strcpy(_firm, firm);
-    strcpy(_country_of_manufacture, country_of_manufacture);
+    _models = generate_model(_firm);
 }
 
 IDevice::~IDevice()
 {
+}
+
+void IDevice::print_models(vector<string> models) {
+    cout << "Models: \n";
+    for(auto i : models) {
+        cout << i << '\n';
+    }
+    cout << '\n';
 }
 
 Mechanical::Mechanical()
